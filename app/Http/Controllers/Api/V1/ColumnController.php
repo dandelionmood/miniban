@@ -16,7 +16,7 @@ class ColumnController extends Controller
      */
     public function index(Request $request, Board $board)
     {
-        return $board->columns()->get(['id', 'label']);
+        return $board->columns()->get(['id', 'label', 'board_id']);
     }
     
     /**

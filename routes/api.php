@@ -31,5 +31,5 @@ Route::middleware(['api'])
 
         Route::put('boards/{board}/columns/{column}/cards/reorder', 'CardController@reorder')
             ->name('boards.columns.cards.reorder');
-        Route::apiResource('boards.columns.cards', 'CardController');
+        Route::apiResource('boards.cards', 'CardController');
     });

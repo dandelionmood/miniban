@@ -27,6 +27,10 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 import Vue from 'vue'
 
+// loading vuex API wrapper
+import store from "./stores";
+
+// declaring dragula wrapper
 import { Vue2Dragula } from 'vue2-dragula'
 Vue.use(Vue2Dragula, {
   logging: {
@@ -36,9 +40,10 @@ Vue.use(Vue2Dragula, {
 
 const app = new Vue({
     el: '#app',
+    store,
     created () {
-        const service = Vue.$dragula.$service
         // Configuring Dragula services
+        const service = Vue.$dragula.$service
         service.options('drakeColumns', {
             direction: 'horizontal',
             moves: function(el, source, handle, sibling) {
@@ -48,5 +53,6 @@ const app = new Vue({
         service.options('drakeCards', {
             // …
         })
+        // / Configuring Dragula services
     }
 });

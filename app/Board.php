@@ -32,6 +32,14 @@ class Board extends Model
 
     public function columns()
     {
-        return $this->hasMany(Column::class)->orderBy('position', 'asc');
+        return $this->hasMany(Column::class)
+            ->orderBy('position', 'asc');
+    }  
+
+    public function cards()
+    {
+        return $this->hasMany(Card::class)
+            ->orderBy('column_id', 'asc')
+            ->orderBy('position', 'asc');
     }
 }

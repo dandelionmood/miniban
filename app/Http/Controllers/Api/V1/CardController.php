@@ -15,9 +15,10 @@ class CardController extends Controller
      * @param  \App\Board  $board
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, Board $board, Column $column)
+    public function index(Request $request, Board $board)
     {
-        return $column->cards()->get(['id', 'label']);
+        return $board->cards()
+            ->get(['id', 'label', 'column_id']);
     }
 
     /**
@@ -26,7 +27,7 @@ class CardController extends Controller
      * @param  \App\Board  $board
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Board $board, Column $column, Card $card)
+    public function show(Request $request, Board $board, Card $card)
     {
         return $card;
     }

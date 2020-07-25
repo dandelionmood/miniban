@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Board;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\EloquentSortable\Sortable;
@@ -36,18 +37,25 @@ class Card extends Model implements Sortable
      */
     protected $casts = [
         'column_id' => 'integer',
-        'board_id' => 'integer',
-        'position' => 'integer',
+        'board_id'  => 'integer',
+        'position'  => 'integer',
     ];
 
     use ValidatingTrait;
 
     protected $rules = [
-        'label' => 'required|filled',
+        'label'     => 'required|filled',
+        'board_id'  => 'required',
+        'column_id' => 'required',
     ];
 
     public function column()
     {
         return $this->belongsTo(Column::class);
+    }
+
+    public function board()
+    {
+        return $this->belongsTo(Board::class);
     }
 }

@@ -48,13 +48,15 @@ class Initialization extends Migration
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
             $table->foreignId('column_id');
+            $table->foreignId('board_id');
 
             $table->string('label');
             $table->unsignedTinyInteger('position');
 
             $table->timestamps();
             $table->softDeletes();
-
+            
+            $table->index('board_id');
             $table->index(['column_id', 'position']);
         });
 

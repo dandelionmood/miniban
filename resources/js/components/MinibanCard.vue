@@ -28,18 +28,18 @@
             }
         },
         mounted() {
-            const req_card = axios
-                .get(route('api.v1.boards.columns.cards.show', {
-                    board: this.boardId, 
-                    column: this.columnId,
-                    card: this.cardId
-                }))
+            // const req_card = axios
+            //     .get(route('api.v1.boards.columns.cards.show', {
+            //         board: this.boardId, 
+            //         column: this.columnId,
+            //         card: this.cardId
+            //     }))
 
-            axios.all([req_card]).then(axios.spread((...resp) => {
-                this.card = resp[0].data
-                this.finishedLoading = true
-                // use/access the results 
-            }))
+            // axios.all([req_card]).then(axios.spread((...resp) => {
+            //     this.card = resp[0].data
+            //     this.finishedLoading = true
+            //     // use/access the results 
+            // }))
         }
     }
 </script>

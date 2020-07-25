@@ -32,7 +32,9 @@ class BoardObserver
                 $card = new Card([
                     'label' => uniqid('card-')
                 ]);
-                $col->cards()->save($card);
+                $card->column()->associate($col);
+                $card->board()->associate($board);
+                $card->save();
             }
         });
     }
